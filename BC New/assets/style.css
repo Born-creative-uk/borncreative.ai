@@ -63,5 +63,59 @@ body {
   animation: fadeInSoft 1s ease-out forwards;
 }
 
+.typewriter {
+  position: relative;
+}
+
+.typewriter .typewriter-content {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-right: 0.2em;
+  clip-path: inset(0 100% 0 0);
+  animation: typeReveal 3.6s steps(40, end) forwards;
+}
+
+.typewriter .typewriter-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.08em;
+  height: 100%;
+  background: var(--brand-2);
+  animation: caretBlink 0.75s steps(1, end) infinite;
+}
+
+@keyframes typeReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes caretBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter .typewriter-content {
+    animation: none;
+    clip-path: none;
+  }
+
+  .typewriter .typewriter-content::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 
 
